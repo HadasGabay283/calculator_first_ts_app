@@ -1,0 +1,98 @@
+:root{
+	--bg: #0f1724;
+	--panel: #0b1220;
+	--accent: #ffcc00;
+	--muted: #94a3b8;
+	--btn: #1f2937;
+	--btn-hover: #374151;
+	--op: #f97316;
+}
+
+.calculator{
+	width: 320px;
+	max-width: 100%;
+	margin: 18px auto;
+	padding: 18px;
+	background: linear-gradient(180deg, var(--panel), rgba(11,18,32,0.9));
+	border-radius: 14px;
+	box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+	color: rgb(125, 41, 156);
+	font-family: Inter, Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.display{
+	background: rgba(255,255,255,0.03);
+	color: var(--accent);
+	font-weight: 600;
+	font-size: 2rem;
+	text-align: right;
+	padding: 12px 14px;
+	border-radius: 8px;
+	min-height: 56px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-bottom: 12px;
+}
+
+.button-grid{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+}
+
+.btn{
+	background: var(--btn);
+	color: #557aa8;
+	border: none;
+	padding: 14px;
+	border-radius: 10px;
+	font-size: 1.05rem;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(2,6,23,0.5);
+	transition: background .12s ease, color .12s ease, opacity .12s ease, transform .06s ease;
+}
+
+.btn:hover{ background: var(--btn-hover); opacity: 0.8; }
+/* stronger operator styling for readability */
+.btn-op{
+  background: linear-gradient(180deg, var(--op), #4f4947);
+  color: #ca5e5e;                /* ensure full white text */
+  font-weight: 700;              /* bolder glyphs */
+  font-size: 1.12rem;            /* slightly larger */
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  box-shadow: 0 6px 14px rgba(249,115,22,0.18), 0 2px 4px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform .06s ease, opacity .12s ease;
+}
+
+.btn-eq{ background: linear-gradient(180deg,var(--accent), #f59e0b); color: #ca5e5e; font-weight: 700 }
+.btn-accent{
+	background: transparent;
+	color: #cbd5e1; /* brighter muted color for better contrast */
+	border: 1px solid rgba(255,255,255,0.10);
+	font-weight: 600;
+	transition: background .12s ease, color .12s ease, transform .06s ease;
+}
+.btn-accent:hover{
+	background: rgba(255,255,255,0.02);
+	color: #ffffff;
+	transform: translateY(-1px);
+}
+.btn-eq:hover, .btn-accent:hover, .btn-op:hover, .btn:hover{
+  transform: translateY(-1px);
+}
+
+/* press (active) state: slightly smaller and darker for tactile feedback */
+.btn:active, .btn-op:active, .btn-eq:active, .btn-accent:active{
+	transform: translateY(0) scale(0.96);
+	filter: brightness(0.88);
+	opacity: 0.95; /* keep slightly visible */
+}
+.wide{ grid-column: span 2 }
+
+@media (max-width: 380px){
+	.calculator{ padding: 12px }
+	.display{ font-size: 1.5rem }
+	.btn{ padding: 10px }
+}
