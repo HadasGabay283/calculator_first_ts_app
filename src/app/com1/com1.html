@@ -1,0 +1,29 @@
+<div class="calculator">
+	<div class="display" aria-live="polite">{{display}}</div>
+
+	<div class="button-grid">
+		<button class="btn btn-accent" (click)="clear()">AC</button>
+		<button class="btn btn-accent" (click)="backspace()">⌫</button>
+		<button class="btn btn-op" (click)="pressOperator(':')">:</button>
+		<button class="btn btn-op" (click)="pressOperator('/')">÷</button>
+
+		<button class="btn" (click)="pressDigit('7')">7</button>
+		<button class="btn" (click)="pressDigit('8')">8</button>
+		<button class="btn" (click)="pressDigit('9')">9</button>
+		<button class="btn btn-op" (click)="pressOperator('*')">×</button>
+
+		<button class="btn" (click)="pressDigit('4')">4</button>
+		<button class="btn" (click)="pressDigit('5')">5</button>
+		<button class="btn" (click)="pressDigit('6')">6</button>
+		<button class="btn btn-op" (click)="pressOperator('-')">−</button>
+
+		<button class="btn" (click)="pressDigit('1')">1</button>
+		<button class="btn" (click)="pressDigit('2')">2</button>
+		<button class="btn" (click)="pressDigit('3')">3</button>
+		<button class="btn btn-op" (click)="pressOperator('+')">+</button>
+
+		<button class="btn wide" (click)="pressDigit('0')">0</button>
+		<button class="btn" (click)="pressDecimal()">.</button>
+		<button class="btn btn-eq" (click)="pressEqual()">=</button>
+	</div>
+</div>
