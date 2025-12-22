@@ -82,6 +82,13 @@
 .btn-eq:hover, .btn-accent:hover, .btn-op:hover, .btn:hover{
   transform: translateY(-1px);
 }
+
+/* press (active) state: slightly smaller and darker for tactile feedback */
+.btn:active, .btn-op:active, .btn-eq:active, .btn-accent:active{
+	transform: translateY(0) scale(0.96);
+	filter: brightness(0.88);
+	opacity: 0.95; /* keep slightly visible */
+}
 .wide{ grid-column: span 2 }
 
 @media (max-width: 380px){
