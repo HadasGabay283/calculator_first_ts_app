@@ -1,0 +1,5 @@
+.login{display:flex;align-items:center;gap:12px}
+.login .btn{padding:8px 10px;border-radius:6px}
+.email-form{display:flex;flex-direction:column;gap:6px}
+.email-form input{padding:8px;border-radius:6px;border:1px solid #ddd}
+.actions{display:flex;gap:8px}
