@@ -1,0 +1,24 @@
+<div class="login">
+  <div *ngIf="user$ | async as user; else loggedOut" class="logged-in">
+    <img [src]="user.photoURL" alt="avatar" width="32" height="32" *ngIf="user.photoURL"/>
+    <div class="user-info">
+      <div class="name">{{ user.displayName || user.email }}</div>
+      <div class="email">{{ user.email }}</div>
+    </div>
+    <button class="btn" (click)="signOut()">Sign out</button>
+  </div>
+  <ng-template #loggedOut>
+    <div class="login-forms">
+      <button class="btn btn-google" (click)="signInGoogle()">Sign in with Google</button>
+
+      <div class="email-form">
+        <input type="email" placeholder="Email" [(ngModel)]="email" />
+        <input type="password" placeholder="Password" [(ngModel)]="password" />
+        <div class="actions">
+          <button class="btn" (click)="signInEmail()">Sign in</button>
+          <button class="btn" (click)="registerEmail()">Register</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

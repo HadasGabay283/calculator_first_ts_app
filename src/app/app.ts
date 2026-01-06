@@ -1,18 +1,23 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { Com1 } from "./com1/com1";
+// Com1 and LoginComponent are used via the router, not directly in the App template
+import { AuthService } from './services/auth.service';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Com1],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
+  user$;
 
-  protected readonly title = signal('my-app');
-  constructor() {
-    console.log('App component initialized');
+  constructor(private auth: AuthService) {
+    this.user$ = this.auth.user$;
   }
 
+  signIn() { this.auth.signInWithGoogle(); }
+  signOut() { this.auth.signOut(); }
 }
